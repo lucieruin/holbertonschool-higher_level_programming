@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-import add_0
-a = 1
-b = 2
-sum = a + b
-print(f"{a} + {b} = {sum}")
+from add_0 import add
+
+if __name__ == "__main__":
+    a = 1
+    b = 2
+    sum = add(a, b)
+    print("{} + {} = {}".format(a, b, sum))
