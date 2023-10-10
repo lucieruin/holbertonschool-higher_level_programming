@@ -60,3 +60,7 @@ This module defines an int addition function by returning the addition of its tw
     >>> add_integer(float('nan'), 2)
     Traceback (most recent call last):
     ValueError: cannot convert float NaN to integer
+
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
