@@ -31,3 +31,8 @@ class TestMaxInteger(unittest.TestCase):
         self.assertRaises(TypeError, max_integer, [('nan'), 1])
         self.assertRaises(TypeError, max_integer, [('nan')], 1)
         self.assertRaises(TypeError, max_integer, [('inf')], 1)
+        self.assertRaises(TypeError, max_integer, [(6, 6, 6)], 'inf')
+        self.assertRaises(TypeError, max_integer, [(6, 6, 6)], 'nan')
+        self.assertRaises(TypeError, max_integer, [(6, 6, 6)], "Hey Georgie")
+        self.assertRaises(TypeError, max_integer, [(6, 6, 6)], "H")
+        self.assertRaises(TypeError, max_integer, [(6, 6, 6)], 'a')
