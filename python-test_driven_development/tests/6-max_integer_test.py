@@ -21,7 +21,6 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer([-1.25, -2.56, -3, -4]), -1.25)
 
 
-
     def test_type_error(self):
         """ type_errors """
         self.assertRaises(TypeError, max_integer, ["h", 1])
@@ -40,7 +39,19 @@ class TestMaxInteger(unittest.TestCase):
         self.assertRaises(TypeError, max_integer, [('@', '&', ':', '#')], 5)
         self.assertRaises(TypeError, max_integer, [(6, 6, 6)], '@')
         self.assertRaises(TypeError, max_integer, [('@', '&', ':', '#')], '@')
-        
+        self.assertRaises(TypeError, max_integer, [('@', '&', 5, 6)], '@')
+        self.assertRaises(TypeError, max_integer, [('@', '&', 5, 6)], 6)
+
+    
+    def test_large_list(self):
+        """ Test large list """
+        large = [i for i in range(10000)]
+        self.assertEqual(max_integer(large), 9999)
+
+    def test_large_list_negative(self):
+        """ Test large list with negative numbers """
+        large = [-i for i in range(10000)]
+
 
 if __name__ == '__main__':
     unittest.main()
