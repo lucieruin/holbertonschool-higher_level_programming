@@ -69,3 +69,28 @@ This module defines the value of base_geometry
     ... except Exception as e:
     ...     print("[{}] {}".format(e.__class__.__name__, e))
     [ValueError] name must be greater than 0
+
+    >>> try:
+    ...     bg.integer_validator("name", '@')
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] name must be an integer
+
+    >>> try:
+    ...     bg.integer_validator("name")
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
+    >>> try:
+    ...     bg.integer_validator("name", "John, "Jumbo")
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    Traceback (most recent call last):
+    SyntaxError: unterminated string literal (detected at line 2)
+
+    >>> try:
+    ...     bg.integer_validator((1, 2), "John")
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] (1, 2) must be an integer
