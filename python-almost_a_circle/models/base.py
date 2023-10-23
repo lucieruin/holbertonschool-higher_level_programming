@@ -16,3 +16,17 @@ class Base():
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    def integerValid(self, name, value):
+        """ check if value is an integer """
+        if type(value) is not int:
+            raise TypeError("{} must be an integer".format(name))
+        if value <= 0:
+            raise ValueError("{} must be > 0".format(name))
+
+    def integerValid2(self, name, value):
+        """ check if value is an integer """
+        if type(value) is not int:
+            raise TypeError("{} must be an integer".format(name))
+        if value < 0:
+            raise ValueError("{} must be >= 0".format(name))

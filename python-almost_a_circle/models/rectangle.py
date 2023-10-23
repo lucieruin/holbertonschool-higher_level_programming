@@ -17,7 +17,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """ width setter method """
-
+        self.integerValid('width', value)
         self.__width = value
 
     @property
@@ -29,7 +29,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """ height setter method """
-
+        self.integerValid('height', value)
         self.__height = value
 
     @property
@@ -41,7 +41,7 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """ x setter method """
-
+        self.integerValid2('x', value)
         self.__x = value
 
     @property
@@ -53,7 +53,7 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """ y setter method """
-
+        self.integerValid2('y', value)
         self.__y = value
 
     def __init__(self, width, height, x=0, y=0, id=None):
