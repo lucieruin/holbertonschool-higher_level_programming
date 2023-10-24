@@ -81,7 +81,7 @@ class Rectangle(Base):
         for row in range(self.x):
             print()
         for row in range(self.height):
-            print("{}{}".format(" " * self.x, "#" * self.width))
+            print(" " * self.x + "#" * self.width)
 
     def __str__(self):
         """ the str method """
