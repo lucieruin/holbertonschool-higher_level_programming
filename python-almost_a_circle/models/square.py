@@ -31,3 +31,15 @@ class Square(Rectangle):
         """ square str method """
         return ("[Square] ({}) {:d}/{:d} - {:d}"
                 .format(self.id, self.x, self.y, self.width))
+
+    def update(self, *args, **kwargs):
+        """ update attibutes """
+        if args:
+            myList = ['id', 'size', 'x', 'y']
+            index = 0
+            for arg in args:
+                setattr(self, myList[index], arg)
+                index += 1
+            else:
+                for key, value in kwargs.items():
+                    setattr(self, key, value)
