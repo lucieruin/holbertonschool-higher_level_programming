@@ -2,6 +2,9 @@
 """ first class Base """
 
 
+import json
+
+
 class Base():
     """ class base """
 
@@ -30,3 +33,9 @@ class Base():
             raise TypeError("{} must be an integer".format(name))
         if value < 0:
             raise ValueError("{} must be >= 0".format(name))
+
+    def to_json_string(list_dictionaries):
+        """  return json string representation
+            Args : list_dictionaries : a list of dictionaries
+        """
+        return json.dumps(list_dictionaries or [])
