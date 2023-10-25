@@ -40,6 +40,7 @@ class Square(Rectangle):
             for arg in args:
                 setattr(self, myList[index], arg)
                 index += 1
-            else:
-                for key, value in kwargs.items():
-                    setattr(self, key, value)
+            return
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
