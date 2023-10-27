@@ -74,16 +74,6 @@ class TestSquare(TestRectangle):
             square = Square(5, 2, 3, 1)
             square.size = "hello"
 
-    # UPDATE
-    # def test_update_args(self):
-    #     """ Testing square initialization with args """
-    #     square = Square(3, 1, 2, 42)
-    #     square.update(1, 4, 3, 0, 0)
-    #     self.assertEqual(square.id, 1)
-    #     self.assertEqual(square.size, 4)
-    #     self.assertEqual(square.x, 3)
-    #     self.assertEqual(square.y, 0)
-
     def test_update_kwargs_only(self):
         """ Testing square initialization with kwargs """
         square = Square(3, 1, 2, 42)
