@@ -2,6 +2,7 @@
 """ Unittest for Square class """
 
 import unittest
+import os
 
 from tests.test_models.test_rectangle import TestRectangle
 from models.rectangle import Rectangle
@@ -159,6 +160,67 @@ class TestSquare(TestRectangle):
         rect = Rectangle(3, 2, 2, 1, "")
         expected_dict = {'id': "", 'width': 3, 'height': 2, 'x': 2, 'y': 1}
         self.assertEqual(rect.to_dictionary(), expected_dict)
+
+    # NEW
+    def test_square_with_width_and_height(self):
+        square = Square(1, 2)
+        self.assertIsInstance(square, Square)
+
+    def test_square_with_width_height_and_x(self):
+        square = Square(1, 2, 3)
+        self.assertIsInstance(square, Square)
+
+    def test_square_with_non_integer_width(self):
+        with self.assertRaises(TypeError):
+            square = Square("1")
+
+    def test_square_with_non_integer_height(self):
+        with self.assertRaises(TypeError):
+            square = Square(1, "2")
+
+    def test_square_with_non_integer_x(self):
+        with self.assertRaises(TypeError):
+            square = Square(1, 2, "3")
+
+    def test_square_with_negative_width(self):
+        with self.assertRaises(ValueError):
+            square = Square(-1)
+
+    def test_square_with_negative_height(self):
+        with self.assertRaises(ValueError):
+            square = Square(1, -2)
+
+    def test_square_with_negative_x(self):
+        with self.assertRaises(ValueError):
+            square = Square(1, 2, -3)
+
+    def test_square_with_width_and_height_zero(self):
+        with self.assertRaises(ValueError):
+            square = Square(0)
+
+    def test_square_with_size_and_x(self):
+        square = Square(1, 2)
+        self.assertEqual(square.size, 1)
+        self.assertEqual(square.x, 2)
+
+    def test_square_with_size_x_and_y(self):
+        square = Square(1, 2, 3)
+        self.assertEqual(square.size, 1)
+        self.assertEqual(square.x, 2)
+        self.assertEqual(square.y, 3)
+
+    def test_saving_to_file_None(self):
+        """Testing saving a file into json format sending None"""
+        try:
+            os.remove("Square.json")
+        except FileNotFoundError:
+            pass
+        r1 = Square(5, 0, 0, 346)
+        Square.save_to_file(None)
+
+        with open("Square.json", "r") as file:
+            content = file.read()
+        self.assertEqual("[]", content)
 
 
 if __name__ == '__main__':
