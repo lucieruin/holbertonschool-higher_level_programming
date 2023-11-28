@@ -23,10 +23,11 @@ if __name__ == "__main__":
         db=database_name
     )
     cursor = connection.cursor()
-    query = "SELECT * FROM states ORDER BY states.id ASC"
-    cursor.execute(query)
+    cursor.execute("SELECT * FROM states ORDER BY states.id ASC")
     results = cursor.fetchall()
+
     for row in results:
         print(row)
+
     cursor.close()
     connection.close()
