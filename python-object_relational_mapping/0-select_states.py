@@ -6,7 +6,7 @@ import sys
 
 
 if __name__ == "__main__":
-    """Check if the correct number of command-line arguments are provided"""
+    """ Check if the correct number of command-line arguments are provided """
     if len(sys.argv) != 4:
         print("Usage: {} <username> <password> <database>".format(sys.argv[0]))
         sys.exit(1)
@@ -23,7 +23,7 @@ if __name__ == "__main__":
         db=database_name
     )
     cursor = connection.cursor()
-    cursor.execute("SELECT * FROM states ORDER BY states.id ASC")
+    cursor.execute("SELECT * FROM states ORDER BY id ASC")
     results = cursor.fetchall()
 
     for row in results:
