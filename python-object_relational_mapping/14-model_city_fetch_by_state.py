@@ -17,7 +17,6 @@ if __name__ == "__main__":
                                    mysql_password, database_name
                                    ), pool_pre_ping=True)
 
-
     Session = sessionmaker(bind=engine)
     session = Session()
 
