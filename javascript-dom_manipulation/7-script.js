@@ -16,5 +16,5 @@ fetch('https://swapi-api.hbtn.io/api/films/?format=json')
     });
   })
   .catch(error => {
-    console.error('There was a problem fetching the movies:', error);
+    console.error('Fetch failed', error);
   });
